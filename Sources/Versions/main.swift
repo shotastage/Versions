@@ -35,6 +35,11 @@ struct VersionsCLI: ParsableCommand {
         if language == "node" {
             let out = Shell.bash("node -v")
             print(out)
+        }    
+
+        if language == "xcode" {
+            let out = Shell.bash("xcodebuild -version")
+            print(out)
         }        
     }
 }
