@@ -4,6 +4,7 @@
 //
 //  Created by Shota Shimazu on 2020/03/08.
 //
+
 import Foundation
 
 class Shell {
