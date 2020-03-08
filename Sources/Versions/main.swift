@@ -12,15 +12,27 @@ struct VersionsCLI: ParsableCommand {
     var count: Int?
 
     func run() throws {
-       
         if language == "swift" {
             print("SWIFT")
         }
 
         if language == "ruby" {
-            print("SWIFT")
+            print("RUBY")
+        }
+
+        if language == "python" {
+            print("PYTHON")
+        }
+
+        if language == "go" {
+            print("GO")
         }
     }
 }
 
 VersionsCLI.main()
+
+
+func SwiftVersionTrack() {
+    
+}
