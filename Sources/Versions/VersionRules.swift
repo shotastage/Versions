@@ -30,13 +30,15 @@ class VersionOf {
 
         let ruleBlock = rule!.components(separatedBy: " ")
 
-        let cmdOutes = rule!.components(separatedBy: " ")
+        let cmdOutes = cmdOut!.components(separatedBy: " ")
 
-        for (index, out) in cmdOutes.enumerated() {
-            print(index, out)
+        var tmpString: String = ""
+
+        for (index, out) in cmdOutes.enumerated() where ruleBlock[index] != "[throw]" {
+            tmpString += out
         }
 
-        return cmdOut!
+        return tmpString
     }
 
     func register(rule: String) -> Self {

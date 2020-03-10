@@ -36,7 +36,7 @@ struct VersionsCLI: ParsableCommand {
         }
 
         if language == "go" {
-            let ver = VersionOf("go version").register(rule: "[throw] [throw] [throw][number] [arch]").number
+            let ver = VersionOf("go version").register(rule: "[throw] [throw] [throw][number] [throw]").number
 
             print(ver)
         }
