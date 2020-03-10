@@ -36,19 +36,19 @@ struct VersionsCLI: ParsableCommand {
         }
 
         if language == "go" {
-            let ver = VersionOf("go version").register(rule: "[throw] [throw] [throw][number] [throw]").number
+            let ver = VersionOf("go version").register(rule: "[throw] [throw] +go[number] [throw]").number
 
             print(ver)
         }
 
         if language == "node" {
-            let ver = VersionOf("node -v").number
+            let ver = VersionOf("node -v").register(rule: "+v[number]").number
 
             print(ver)
         }    
 
         if language == "xcode" {
-            let ver = VersionOf("xcodebuild -version").number
+            let ver = VersionOf("xcodebuild -version").sliceLine(of: 1).register(rule: "+Xcode[number]").number
 
             print(ver)
         }        
