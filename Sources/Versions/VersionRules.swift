@@ -16,14 +16,14 @@ import Foundation
 // [throw] [throw] [throw] [version] [build]
 // and extracted
 // 5.1.3
-class VersionOf {
-    
+class Version {
+
     var cmdOut: String?
 
     var rule: String?
 
-    init(_ cmd: String) {
-        cmdOut = Shell.bash(cmd)
+    init(of : String) {
+        cmdOut = Shell.bash(of)
     }
     
     var number: String {
