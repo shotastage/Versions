@@ -29,26 +29,28 @@ struct VersionsCLI: ParsableCommand {
         }
 
         if language == "python" {
-            let out = Shell.bash("python -V")
             
-            let vers = out.components(separatedBy: "Python")
+            let ver = VersionOf("python -V").number
 
-            print(vers[0])
+            print(ver)
         }
 
         if language == "go" {
-            let out = Shell.bash("go version")
-            print(out)
+            let ver = VersionOf("go version").number
+
+            print(ver)
         }
 
         if language == "node" {
-            let out = Shell.bash("node -v")
-            print(out)
+            let ver = VersionOf("node -v").number
+
+            print(ver)
         }    
 
         if language == "xcode" {
-            let out = Shell.bash("xcodebuild -version")
-            print(out)
+            let ver = VersionOf("xcodebuild -version").number
+
+            print(ver)
         }        
     }
 }
