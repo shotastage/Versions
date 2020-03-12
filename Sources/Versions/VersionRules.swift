@@ -32,11 +32,9 @@ class Version {
 
         let cmdOutes = cmdOut!.components(separatedBy: " ")
 
-        print("@@@@")
-        print(cmdOutes)
         var tmpString: String = ""
 
-        for (index, out) in cmdOutes.enumerated() where ruleBlock[index] != "[throw]" {        
+        for (index, out) in cmdOutes.enumerated() where ruleBlock[index] != "[throw]" {
             tmpString += out
         }
 
