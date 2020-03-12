@@ -8,7 +8,6 @@
 import Foundation
 
 class Shell {
-
     @discardableResult
     static func shell(launchPath: String, arguments: [String]) -> String {
         let task = Process()
@@ -22,7 +21,7 @@ class Shell {
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         let output = String(data: data, encoding: String.Encoding.utf8)!
         if output.count > 0 {
-            //remove newline character.
+            // remove newline character.
             let lastIndex = output.index(before: output.endIndex)
             return String(describing: output[output.startIndex ..< lastIndex])
         }
@@ -31,11 +30,9 @@ class Shell {
 
     @discardableResult
     static func bash(_ cmdString: String) -> String {
-
         let commands: [String] = cmdString.components(separatedBy: " ")
 
-        let whichPathForCommand = Shell.shell(launchPath: "/bin/bash", arguments: [ "-l", "-c", "which \(commands[0])" ])
+        let whichPathForCommand = Shell.shell(launchPath: "/bin/bash", arguments: ["-l", "-c", "which \(commands[0])"])
         return Shell.shell(launchPath: whichPathForCommand, arguments: Array(commands.suffix(commands.count - 1)))
     }
 }
-

@@ -1,7 +1,7 @@
 import ArgumentParser
+import Foundation
 
 struct VersionsCLI: ParsableCommand {
-
     @Argument(help: "Specify language")
     var language: String
 
@@ -10,6 +10,23 @@ struct VersionsCLI: ParsableCommand {
 
     @Option(name: .shortAndLong, help: "The number of times to repeat 'phrase'.")
     var count: Int?
+
+    func readVersinfiles() {
+        let file = FileHandle(forReadingAtPath: "./Versionfile")!
+        let data = file.readDataToEndOfFile()
+        let dataString = String(data: data, encoding: .utf8)!
+        file.closeFile()
+
+        for line in dataString.components(separatedBy: .newlines) where line != "\n" {
+            switch line {
+            case "xcode":
+
+                VersionFiler().xcodeVersion()
+            default:
+                print("SSSS")
+            }
+        }
+    }
 
     func run() throws {
         if language == "swift" {
@@ -29,7 +46,6 @@ struct VersionsCLI: ParsableCommand {
         }
 
         if language == "python" {
-            
             let ver = Version(of: "python -V").number
 
             print(ver)
@@ -45,15 +61,19 @@ struct VersionsCLI: ParsableCommand {
             let ver = Version(of: "node -v").register(rule: "+v[number]").number
 
             print(ver)
-        }    
+        }
 
         if language == "xcode" {
             // let ver = Version(of: "xcodebuild -version").sliceLine(of: 1).register(rule: "+Xcode[number]").number
-            
+
             let ver = Version(of: "xcodebuild -version").sliceLine(of: 1).register(rule: "[throw] [number]").number
 
             print(ver)
-        }        
+        }
+
+        if language == "make" {
+            readVersinfiles()
+        }
     }
 }
 
