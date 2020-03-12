@@ -50,7 +50,7 @@ struct VersionsCLI: ParsableCommand {
         if language == "xcode" {
             // let ver = Version(of: "xcodebuild -version").sliceLine(of: 1).register(rule: "+Xcode[number]").number
             
-            let ver = Version(of: "xcodebuild -version").sliceLine(of: 1).register(rule: "+Xcode[number]")
+            let ver = Version(of: "xcodebuild -version").sliceLine(of: 1).register(rule: "+Xcode[number]").number
 
             print(ver)
         }        
