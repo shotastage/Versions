@@ -34,14 +34,7 @@ class Version {
 
         var tmpString: String = ""
 
-        for (index, out) in cmdOutes.enumerated() where ruleBlock[index] != "[throw]" {
-
-            let tttt = out.components(separatedBy: "prefix")
-
-            for tt in tttt {
-                print("@@@", tt)
-            }
-        
+        for (index, out) in cmdOutes.enumerated() where ruleBlock[index] != "[throw]" {        
             tmpString += out
         }
 
@@ -49,10 +42,11 @@ class Version {
     }
 
     func sliceLine(of: Int) -> Self {
-        self.cmdOut = cmdOut!.components(separatedBy: .newlines)[of - 1]
+        self.cmdOut = self.cmdOut!.components(separatedBy: .newlines)[of - 1]
 
         return self
     }
+
 
     func register(rule: String) -> Self {
         self.rule = rule
