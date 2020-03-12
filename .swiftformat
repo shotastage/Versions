@@ -1,0 +1,8 @@
+--binarygrouping none
+--closingparen balanced
+--decimalgrouping none
+--hexgrouping none
+--ifdef noindent
+--octalgrouping none
+--stripunusedargs closure-only
+--wraparguments beforefirst
