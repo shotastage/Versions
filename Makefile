@@ -5,3 +5,4 @@ xcodeproj:
 clean:
 	rm -rf .build/
 	rm -rf Versions.xcodeproj/
+	rm .xcode-version
