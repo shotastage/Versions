@@ -14,10 +14,9 @@ struct VersionsCLI: ParsableCommand {
         for line in dataString.components(separatedBy: .newlines) where line != "\n" {
             switch line {
             case "xcode":
-
                 VersionFiler().xcodeVersion()
             default:
-                print("SSSS")
+                _ = "None"
             }
         }
     }

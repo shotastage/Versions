@@ -1,8 +1,9 @@
 import Foundation
 
 class VersionFiler {
+    let fileManager = FileManager.default
+
     func xcodeVersion() {
-        let fileManager = FileManager.default
         let result = fileManager.createFile(atPath: ".xcode-version", contents: nil, attributes: nil)
         let ver = Version(of: "xcodebuild -version").sliceLine(of: 1).register(rule: "[throw] [number]").number
 
