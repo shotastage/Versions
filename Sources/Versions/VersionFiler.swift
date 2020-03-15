@@ -10,6 +10,14 @@ class VersionFiler {
         write(file: URL(fileURLWithPath: ".xcode-version"), text: ver)
     }
 
+    func swiftVersion() {
+        write(file: URL(fileURLWithPath: ".swift-version"), text: ver)
+    }
+
+    func rubyVersion() {
+        write(file: URL(fileURLWithPath: ".ruby-version"), text: ver)
+    }
+
     @discardableResult
     private func write(file: URL, text: String) -> Bool {
         guard let stream = OutputStream(url: file, append: true) else {
