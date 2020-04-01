@@ -10,7 +10,7 @@ class VersionFiler {
     }
 
     func swiftVersion() {
-        let ver = Version(of: "xcodebuild -version").sliceLine(of: 1).register(rule: "[throw] [number]").number
+        let ver = Version(of: "swift --version").sliceLine(of: 1).register(rule: "[throw] [number]").number
 
         write(file: URL(fileURLWithPath: ".swift-version"), text: ver)
     }
