@@ -39,4 +39,21 @@ class VersionFiler {
         }
         return (result > 0)
     }
+
+    /**
+     Remove specified file
+
+     - Parameter for: Remove target file
+     - Returns: Result true:Success / false:Fail
+     */
+    @discardableResult
+    private func prepare(for removePath: String) -> Bool {
+        do {
+            try fileManager.removeItem(atPath: removePath)
+        } catch {
+            return false
+        }
+
+        return true
+    }
 }
