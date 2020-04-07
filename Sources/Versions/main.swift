@@ -15,6 +15,8 @@ struct VersionsCLI: ParsableCommand {
             switch line {
             case "xcode":
                 VersionFiler().xcodeVersion()
+            case "swift":
+                VersionFiler().swiftVersion()
             default:
                 _ = "None"
             }
