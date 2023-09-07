@@ -72,4 +72,4 @@ struct VersionsCLI: ParsableCommand {
     }
 }
 
-VersionsCLI.main()
+// VersionsCLI.main()
