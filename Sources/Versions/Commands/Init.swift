@@ -8,13 +8,7 @@ struct Init: ParsableCommand {
     )
 
     func run() throws {
-        print("This tool is now under construction that it has possibility of being unstable.")
-
-        do {
-            try Shell.run("echo", arguments: ["Hello"])
-        }
-        catch {
-            print("Failed to execute internal command.")
-        }
+        let out = Shell.directoryRun("echo This command is now under construction.")
+        print(out)
     }
 }
