@@ -1,5 +1,6 @@
 
 import ArgumentParser
+import ShellSwift
 
 struct Init: ParsableCommand {
     static let configuration = CommandConfiguration(
@@ -9,6 +10,11 @@ struct Init: ParsableCommand {
     func run() throws {
         print("This tool is now under construction that it has possibility of being unstable.")
 
-        Shell.shell(launchPath: "echo", arguments: ["now under construction..."])
+        do {
+            try Shell.run("echo", arguments: ["Hello"])
+        }
+        catch {
+            print("Failed to execute internal command.")
+        }
     }
 }

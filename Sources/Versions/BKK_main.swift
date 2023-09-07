@@ -1,6 +1,7 @@
 import ArgumentParser
 import Foundation
 
+/*
 struct VersionsCLI: ParsableCommand {
     @Argument(help: "Specify language")
     var language: String
@@ -71,5 +72,5 @@ struct VersionsCLI: ParsableCommand {
         }
     }
 }
-
+*/
 // VersionsCLI.main()

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ShellSwift
 
 // Commandline Regex
 //
@@ -22,7 +23,7 @@ class Version {
     var rule: String?
 
     init(of: String) {
-        cmdOut = Shell.bash(of)
+        cmdOut = "version: 2.8" // Temp placeholder
     }
 
     var number: String {
