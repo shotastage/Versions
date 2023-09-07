@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "shell.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/shotastage/Shell.swift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7a01ac73a18d73adfede523b97456788058cb8cf"
+      }
+    },
+    {
       "identity" : "swift-argument-parser",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-argument-parser",
