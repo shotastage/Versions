@@ -8,7 +8,8 @@ struct MainCLI: ParsableCommand {
             abstract: "Multiple toolchain version fixer",
             version: "0.0.1",
             subcommands: [
-                Init.self
+                Init.self,
+                Add.self,
             ],
             defaultSubcommand: Init.self
         )
