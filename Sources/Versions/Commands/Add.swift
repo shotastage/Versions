@@ -15,22 +15,18 @@ struct Add: ParsableCommand {
     )
 
     func run() throws {
-
-        let fileName = "Versionfile"
-        let content = "# Versionfile - 0.1 -\n"
-
-        do {
-            let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-            let fileURL = currentDirectoryURL.appendingPathComponent(fileName)
-
-            try content.write(to: fileURL, atomically: true, encoding: .utf8)
-            print("\(fileName) has been created.")
-        } catch {
-            print("Error has been occured: \(error)")
+        let out = Shell.directoryRun("swift --version")
+        
+        if let version = extractSwiftVersion(from: out) {
+            addVersionLine(toolchain: "swift", version: extractSwiftVersion(from: version)!)
+        } else {
+            print("Failed to detect toolchain version.")
         }
+        
+    }
 
-        let out = Shell.directoryRun("echo This command is now under construction.")
-        print(out)
+    private func addVersionLine(toolchain: String, version: String) {
+        StrUtil.appendText("\(toolchain)=\(version)", toFile: "Versionfile")
     }
 
     private func extractSwiftVersion(from string: String) -> String? {
